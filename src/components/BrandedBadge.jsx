@@ -62,7 +62,7 @@ const BrandedBadge = ({ name = "Claudio | GLTV Dashboard — X, Bigly" }) => {
             color="#8A9099"
             fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
           >
-            X, Bigly
+            Yoco
           </Text>
         </HStack>
       </HStack>
