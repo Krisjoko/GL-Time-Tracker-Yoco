@@ -1,11 +1,7 @@
 import { Box, VStack, HStack, Text } from '@chakra-ui/react';
 import { Clock, BarChart3 } from 'lucide-react';
 
-const HOURLY_RATE = 1200;
-
 const BillingBreakdown = ({ totalHours = 0, monthCount = 1 }) => {
-  const totalValue = totalHours * HOURLY_RATE;
-
   return (
     <Box
       bg="#22252A"
@@ -39,7 +35,6 @@ const BillingBreakdown = ({ totalHours = 0, monthCount = 1 }) => {
               <Clock size={16} color="#2E9BD6" />
               <Text fontSize="sm" fontWeight="600" color="#2E9BD6">Hours Logged</Text>
             </HStack>
-            <Text fontSize="xs" color="#8A9099">R{HOURLY_RATE}/hr</Text>
           </HStack>
           <HStack justify="space-between" align="baseline">
             <Text fontSize="xs" color="#8A9099">
@@ -52,14 +47,9 @@ const BillingBreakdown = ({ totalHours = 0, monthCount = 1 }) => {
         <Box pt={4} borderTop="1px solid" borderColor="#343840">
           <HStack justify="space-between" align="center">
             <Text fontSize="md" fontWeight="600" color="#8A9099">Total Billable:</Text>
-            <VStack align="end" gap={0}>
-              <Text fontSize="3xl" fontWeight="300" color="#ECEEF0" letterSpacing="-0.03em">
-                {totalHours.toFixed(1)}h
-              </Text>
-              <Text fontSize="sm" color="#2E9BD6" fontWeight="600">
-                R{totalValue.toLocaleString('en-ZA')}
-              </Text>
-            </VStack>
+            <Text fontSize="3xl" fontWeight="300" color="#ECEEF0" letterSpacing="-0.03em">
+              {totalHours.toFixed(1)}h
+            </Text>
           </HStack>
         </Box>
       </VStack>
