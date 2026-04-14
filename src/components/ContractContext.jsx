@@ -1,9 +1,8 @@
 import { Box, VStack, Text, HStack, Separator } from '@chakra-ui/react';
-import { Calendar, Clock, TrendingUp, Target } from 'lucide-react';
+import { Calendar, Clock, Target } from 'lucide-react';
 
 // Yoco contract: 7hrs/week — Mon 2h | Thu 1h | Sat 4h
 const WEEKLY_TARGET = 7;
-const HOURLY_RATE = 1200;
 
 const SESSION_SCHEDULE = [
   { day: 'Monday',   time: '11:00–13:00 SA', hours: 2, note: 'Jam session with MJ' },
@@ -27,7 +26,6 @@ const ContractContext = ({ totalHours = 0, dateRange = {}, monthCount = 1 }) => 
     : monthCount * getWeeksInMonth(selectedYear, selectedMonth);
 
   const expectedHours = weeksInMonth * WEEKLY_TARGET;
-  const loggedValue = totalHours * HOURLY_RATE;
   const remainingHours = Math.max(expectedHours - totalHours, 0);
   const progressPct = expectedHours > 0 ? Math.min((totalHours / expectedHours) * 100, 100) : 0;
 
@@ -96,8 +94,6 @@ const ContractContext = ({ totalHours = 0, dateRange = {}, monthCount = 1 }) => 
             { icon: Clock,       label: 'Hours logged',     value: `${totalHours.toFixed(1)}h` },
             { icon: Clock,       label: 'Remaining',        value: `${remainingHours.toFixed(1)}h`,
               valueColor: remainingHours === 0 ? '#2E9BD6' : '#ECEEF0' },
-            { icon: TrendingUp,  label: 'Period value',     value: `R${loggedValue.toLocaleString('en-ZA')}`,
-              sub: `R${HOURLY_RATE}/hr`, valueColor: '#2E9BD6' },
           ].map(({ icon: Icon, label, sub, value, valueColor }, i, arr) => (
             <Box key={label}>
               <HStack justify="space-between" align="center" py={3}>
