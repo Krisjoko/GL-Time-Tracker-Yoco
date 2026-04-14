@@ -130,7 +130,7 @@ const CapacityBarometer = ({ totalHours = 0, monthCount = 1 }) => {
               Monthly cap
             </Text>
             <Text fontSize="xs" color="#8A9099" fontWeight="600">
-              {cap.toFixed(1)}h · R{(36400 * monthCount).toLocaleString('en-ZA')}
+              {cap.toFixed(1)}h
             </Text>
           </HStack>
         </VStack>
